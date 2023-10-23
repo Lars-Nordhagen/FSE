@@ -1,4 +1,10 @@
 # FSEMP
 
-A Repository for the FSE 100 Master Project
-By: Lars Nordhagen, Ray Garcia, Mason Giziki, and Sudesh Reddy
+Ray
+TEST
+dafhlkjdhfalks
+
+MAMson
+DSAs
+ray is checking if this works 
+ray is checking again if this works
