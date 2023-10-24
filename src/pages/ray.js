@@ -1,3 +1,4 @@
+{
 let x = [],
   y = [],
   segNum = 20,
@@ -8,11 +9,9 @@ for (let i = 0; i < segNum; i++) {
   y[i] = 0;
 }
 
-function setup() {
-  createCanvas(710, 400);
-  strokeWeight(9);
-  stroke(255, 100);
-}
+createCanvas(710, 400);
+strokeWeight(9);
+stroke(255, 100);
 
 function draw() {
   background(0);
@@ -37,4 +36,5 @@ function segment(x, y, a) {
   rotate(a);
   line(0, 0, segLength, 0);
   pop();
+}
 }
