@@ -1,0 +1,18 @@
+For each new page, create a new {NAME}.js file in the src/pages folder
+
+In the page file make sure the first line is a single "{" and the last line is a single "}"
+    This is to make sure variable names from different files do not interfere with each other
+
+Instead of using a setup method for each page, just put the "setup" code that you want to run once at the top of the file
+
+Still use the draw function and other custom functions as normal
+
+
+Other code files that don't represent a page go directly under the src folder
+
+
+To switch from one page to another page, use the line 'changePage("{NEW PAGE NAME}");'
+    Do not include the ".js" in the name
+
+
+To save information that will be permanant, even after changing pages, use the line: To be implemented
