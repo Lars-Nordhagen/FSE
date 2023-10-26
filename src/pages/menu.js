@@ -9,6 +9,8 @@ textAlign(CENTER, TOP);
 textFont(font);
 text("Strelpe", 0, 30, width);
 
+let lBut = new larsButton(buttonImg, "LARS BUTTON", 20, 20, 200, 200);
+
 playButton = createButton("Menu");
 playButton.position(width/2, 100);
 
