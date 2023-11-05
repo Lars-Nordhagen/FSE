@@ -27,15 +27,15 @@
     }
     
     function l1() {
-        currentLevel = "l1";
+        currentLevel = 1;
         changePage(currentGame);
     }
     function l2() {
-        currentLevel = "l2";
+        currentLevel = 2;
         changePage(currentGame);
     }
     function l3() {
-        currentLevel = "l3";
+        currentLevel = 3;
         changePage(currentGame);
     }
 }

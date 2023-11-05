@@ -3,10 +3,10 @@ var currentPage = document.createElement('script');
 // For testing purposes
 document.addEventListener("keypress", function(event) {
   if (event.key == 'e') {
-    changePage("buttonScreen")
+    saveScore("eee", "fff");
   }
-  if (event.key == 'r') {
-    changePage("screen1")
+  if (event.key == 'y') {
+    clearStorage();
   }
 });
 
