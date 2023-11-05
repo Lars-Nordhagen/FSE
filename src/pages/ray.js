@@ -9,7 +9,6 @@ for (let i = 0; i < segNum; i++) {
   y[i] = 0;
 }
 
-createCanvas(710, 800);
 strokeWeight(9);
 stroke(255, 100);
 
