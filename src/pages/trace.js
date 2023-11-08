@@ -28,6 +28,8 @@
     createPath();
   }
   drawEndNodes();
+
+  let greenLast = true;
   
   function draw() {
     if (mouseIsPressed) {
@@ -45,14 +47,22 @@
 
         stroke(255, 0, 0);
 
+        let hgjdf = greenLast;
+
         for (let i = 0; i < path.length; i++) {
 
           let distance = sqrt(sq(dotX - path[i][0]) + sq(dotY - path[i][1]));
           if (distance < maxDist) {
+            greenLast = true;
             correctDots++;
             stroke(0, 255, 0);
             break;
+          } else {
+            greenLast = false;
           }
+        }
+        if (hgjdf && !greenLast) {
+          vPlay(buzzSnd);
         }
 
         drawPoint(dotX, dotY);
@@ -158,7 +168,8 @@
 
 
   function done() {
-    score = (round(correctDots * 1000 / dots.length)/10) + "%";
+    score = round(correctDots * 1000 / dots.length)/10
+    scoreStr = score + "%";
     changePage("complete");
   }
   

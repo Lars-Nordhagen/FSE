@@ -3,10 +3,15 @@ var currentPage = document.createElement('script');
 // For testing purposes
 document.addEventListener("keypress", function(event) {
   if (event.key == 'e') {
-    saveScore("eee", "fff");
+    console.log(getItem("UserData"));
   }
+
+  if (event.key == 't') {
+    createDataJSON();
+  }
+
   if (event.key == 'y') {
-    clearStorage();
+    vPlay(buzzSnd);
   }
 });
 
@@ -16,6 +21,7 @@ document.addEventListener("keypress", function(event) {
 //    name- type: string    info: name of page file to switch to (sans .js)
 
 function changePage(name) {
+  vPlay(buttonSnd);
   currentPage.remove();
 
   if (typeof remove === "function") { 

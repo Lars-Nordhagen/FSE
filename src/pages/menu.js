@@ -8,7 +8,7 @@
     text("Strelpe", 0, 30, width);
 
     let menuButWidth = 200;
-    let menuButHeight = 150;
+    let menuButHeight = 135;
 
     let playButton = new larsButton(buttonImg, "Play", menuButWidth, menuButHeight, width/2, 250, playButPress);
     let progressButton = new larsButton(buttonImg, "Progress", menuButWidth, menuButHeight, width/2, 350, progButPress);

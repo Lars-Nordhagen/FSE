@@ -8,16 +8,9 @@
 
     backButton(back);
 
-    let levelButWidth = 350;
-    let levelButHeight = 200;
-    let levelButXPos = width/2;
-    let levelButYPos = 200;
-    let levelButSpace = 110;
+    levelSelectButtons(l1, l2, l3);
     
-    let l1Button = new larsButton(buttonImg, "Level 1", levelButWidth, levelButHeight, levelButXPos, levelButYPos, l1);
-    let l2Button = new larsButton(buttonImg, "Level 2", levelButWidth, levelButHeight, levelButXPos, levelButYPos + levelButSpace*1, l2);
-    let l3Button = new larsButton(buttonImg, "Level 3", levelButWidth, levelButHeight, levelButXPos, levelButYPos + levelButSpace*2, l3);
-    
+    let instrucButt = new larsButton(buttonImg, "Instructions", 140, 100, 300, 117, instructPage);
     
     function draw() {
     }
@@ -37,5 +30,8 @@
     function l3() {
         currentLevel = 3;
         changePage(currentGame);
+    }
+    function instructPage() {
+        changePage("instructions");
     }
 }

@@ -1,5 +1,5 @@
 {
-
+    frameRate(60);
     defaultBG();
     stroke(0, 0, 0, 0);
     
@@ -11,8 +11,9 @@
     backButton(back);
     
     let scoreText = "Score: " + score;
+    saveScore(currentGame, score, scoreStr, currentLevel);
 
-    textSize(30);
+    textSize(45);
     textAlign(CENTER, TOP);
     textFont(font);
     text(scoreText, 0, 200, width);
@@ -32,5 +33,7 @@
     function mouseClicked() {}
     function doubleClicked() {}
     function mouseWheel() {}
+
+    vPlay(winSnd);
 
 }
