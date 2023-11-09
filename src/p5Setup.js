@@ -6,6 +6,7 @@ let buzzSnd;
 let winSnd;
 let beepSnd;
 let buttonSnd;
+let whooshSnd;
 
 function preload() {
     font = loadFont("./assets/fonts/Nunito-Light.ttf");
@@ -17,6 +18,7 @@ function preload() {
     winSnd = loadSound("./assets/sounds/WinSnd");
     beepSnd = loadSound("./assets/sounds/BeepSnd");
     buttonSnd = loadSound("./assets/sounds/ButtonSnd");
+    whooshSnd = loadSound("./assets/sounds/whooshSnd");
 }
 
 // The setup function that initializes the p5 code and canvas

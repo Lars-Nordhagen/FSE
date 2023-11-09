@@ -1,73 +1,86 @@
 {
-    frameRate(60);
+    let fr = 60;
+    frameRate(fr);
     angleMode(DEGREES);
 
-    let ballStartX = 200;
+    let ballStartRange = 0;
+    if (currentLevel == 2) {
+        ballStartRange = 50;
+    } else if (currentLevel == 3) {
+        ballStartRange = 170;
+    }
     let ballStartY = 450;
     let ballStartSize = 60;
 
-    let ballX = ballStartX;
-    let ballY = ballStartY;
-    let ballSize = ballStartSize;
+    let ballX;
+    let ballY;
+    let ballSize;
 
-    let ballAlpha = 255;
-    let fade = false;
+    let ballAlpha;
+    let fade;
 
     let hoopY = 150;
     let maxMove = 75;
 
+    let minSpeed = 10;
+    let maxSpeed = 17;
+
     let points = 0;
 
-    let ballGrabbed = false;
-    let grabXOff = 0;
-    let grabYOff = 0;
-    let grabX = 0;
-    let grabY = 0;
+    let ballGrabbed;
+    let grabXOff;
+    let grabYOff;
+    let grabX;
+    let grabY;
 
 
-    let thrown = false;
-    let speed = 0.0;
-    let framesSinceThrow = 0;
-    let throwX = 0;
-    let throwY = 0;
-    let throwZ = 0;
-    let aboveHoop = false;
-    let hitSpot = hoopY - (ballSize/2);
-    let atHit = false;
+    let thrown;
+    let speed;
+    let framesSinceThrow;
+    let throwX;
+    let throwY;
+    let throwZ;
+    let aboveHoop;
+    let hitSpot;
+    let atHit;
 
-    let extraYSpeed = 0;
-    let extraXSpeed = 1;
-
-
-    let pastPos = [];
-    let pastPosAmmount = 20;
-    for (let i = 0; i <= pastPosAmmount; i++) {
-        pastPos[i] = [ballX, ballY];
-    }
-    let currentPos = 0;
-    let framesSinceGrab = 0;
-
-    let angle = 0;
+    let extraYSpeed;
+    let extraXSpeed;
 
 
+    let pastPos;
+    let pastPosAmmount;
+    let currentPos;
+    let framesSinceGrab;
 
+    let angle;
+    let l1AngAdj = 2.7;
+    let l2AngAdj = 2;
+    let l3AngAdj = 1.5;
+
+    let timer = 30*fr;
+
+
+
+    reset();
     drawCourt();
     drawBall();
-
     showScore();
 
 
 
 
-
-
-
     function draw() {
-        console.log(ballX);
+        timer--;
+        if (timer < 0) {
+            done();
+        }
+
+
         if (fade) {
             ballAlpha -= 8;
             if (ballAlpha < -50) {
-
+                reset();
             }
         }
 
@@ -84,7 +97,12 @@
             
             let zAdj1 = 0.1;
             throwZ += zAdj1 * speed;
-            ballSize = ballStartSize - throwZ * 0.1;
+            ballSize = ballStartSize - throwZ * 0.1
+            if (ballSize < 35) {
+                ballSize = 35;
+            }
+
+            hitSpot = hoopY - (ballSize/2);
 
             let xAdj1 = 0.65;
             xSpeed = xAdj1 * speed * sin(angle) * 0.6 * extraXSpeed;
@@ -98,6 +116,7 @@
 
                     if (abs(ballX-200) < 28) {
                         points++;
+                        vPlay(beepSnd);
                     } else if (abs(ballX-200) < 60) {
                         extraXSpeed = 1.3;
                         extraYSpeed = -1.6*ySpeed;
@@ -132,21 +151,45 @@
             currentPos++;
             if (currentPos >= pastPosAmmount) { currentPos = 0; }
         } else if (framesSinceGrab != 0) {
+            vPlay(whooshSnd);
             let distance = dist(pastPos[currentPos-1][0], pastPos[currentPos][0], pastPos[currentPos-1][1], pastPos[currentPos][1]);
             let frames = framesSinceGrab + 0.0;
 
             angle = -atan((pastPos[currentPos-1][0] - pastPos[currentPos][0])/(pastPos[currentPos-1][1] - pastPos[currentPos][1]));
+
+            console.log("" + angle);
+            let hoopAngle = -atan((200 - ballX)/(hoopY - ballY));
+            console.log("   " + hoopAngle);
+
+            let angleAdj = 1;
+            if (currentLevel == 1) {
+                angleAdj = l1AngAdj;
+            } else if (currentLevel == 2) {
+                angleAdj = l2AngAdj;
+            } else {
+                angleAdj = l3AngAdj;
+            }
+
+            angle = hoopAngle - ((hoopAngle - angle)/angleAdj);
+            console.log("   " + angle);
+
 
             framesSinceGrab = 0;
             currentPos = 0;
 
             thrown = true;
             speed = distance/frames;
+            if (speed < minSpeed) {
+                speed = minSpeed;
+            } else if(speed > maxSpeed) {
+                speed = maxSpeed;
+            }
             framesSinceThrow = 0;
         }
 
         drawCourt();
         drawBall();
+        showScore();
     }
 
     function mousePressed() {
@@ -176,8 +219,43 @@
 
 
 
-    function shoot(speed) {
+    function reset() {
+        ballX = random(200-ballStartRange, 200+ballStartRange);
+        ballY = ballStartY;
+        ballSize = ballStartSize;
 
+        ballAlpha = 255;
+        fade = false;
+
+        ballGrabbed = false;
+        grabXOff = 0;
+        grabYOff = 0;
+        grabX = 0;
+        grabY = 0;
+
+        thrown = false;
+        speed = 0.0;
+        framesSinceThrow = 0;
+        throwX = 0;
+        throwY = 0;
+        throwZ = 0;
+        aboveHoop = false;
+        hitSpot = hoopY - (ballSize/2);
+        atHit = false;
+
+        extraYSpeed = 0;
+        extraXSpeed = 1;
+
+
+        pastPos = [];
+        pastPosAmmount = 20;
+        for (let i = 0; i <= pastPosAmmount; i++) {
+            pastPos[i] = [ballX, ballY];
+        }
+        currentPos = 0;
+        framesSinceGrab = 0;
+
+        angle = 0;
     }
 
 
@@ -291,7 +369,9 @@
         textSize(30);
         stroke(255);
         strokeWeight(3);
-        text("Score: " + points, 75, 235);
+        text("Score: " + points, 200 - 125, 235);
+
+        text("Time: " + ceil(timer/fr), 200 + 125, 235);
 
         pop();
     }
