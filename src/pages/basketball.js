@@ -157,9 +157,7 @@
 
             angle = -atan((pastPos[currentPos-1][0] - pastPos[currentPos][0])/(pastPos[currentPos-1][1] - pastPos[currentPos][1]));
 
-            console.log("" + angle);
             let hoopAngle = -atan((200 - ballX)/(hoopY - ballY));
-            console.log("   " + hoopAngle);
 
             let angleAdj = 1;
             if (currentLevel == 1) {
@@ -171,7 +169,6 @@
             }
 
             angle = hoopAngle - ((hoopAngle - angle)/angleAdj);
-            console.log("   " + angle);
 
 
             framesSinceGrab = 0;
@@ -204,7 +201,6 @@
             grabYOff = mouseY - ballY;
             grabX = ballX;
             grabY = ballY;
-            console.log("On Ball");
         }
     }
     function mouseReleased() {

@@ -1,6 +1,8 @@
 {
-
+    stop(0);
     defaultBG();
+
+    fill(0);
 
     textSize(80);
     textAlign(CENTER, TOP);
@@ -29,6 +31,8 @@
     function settButPress() {
         changePage("settings");
     }
+
+    function doubleClicked() {}
 
 
 }

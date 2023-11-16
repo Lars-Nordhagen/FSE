@@ -11,7 +11,7 @@ document.addEventListener("keypress", function(event) {
   }
 
   if (event.key == 'y') {
-    vPlay(buzzSnd);
+    changePage("menu");
   }
 });
 
@@ -33,4 +33,6 @@ function changePage(name) {
   currentPage.src = "./src/pages/" + name + ".js";
   currentPage.id = "p5";
   document.body.appendChild(currentPage);
+
+  frameRate(30);
 }

@@ -8,7 +8,9 @@ function backButton(backFunc) {
 }
 
 let traceGameName = "Tracer";
-let basketballName = "Basketball"
+let basketballName = "Basketball";
+let bubblesName = "Bubble Pop";
+let textName = "Typer";
 
 let currentGame = "g1";
 let currentLevel = "l1";
@@ -28,8 +30,8 @@ function gameSelectButtons(func1, func2, func3, func4) {
     
     let g1Button = new larsButton(buttonImg, traceGameName, gameButWidth, gameButHeight, (width/2) - gameButXPos, gameButYPos, func1);
     let g2Button = new larsButton(buttonImg, basketballName, gameButWidth, gameButHeight, (width/2) + gameButXPos, gameButYPos, func2);
-    let g3Button = new larsButton(buttonImg, "Game 3 Name", gameButWidth, gameButHeight, (width/2) - gameButXPos, gameButYPos + gameButSpace, func3);
-    let g4Button = new larsButton(buttonImg, "Game 4 Name", gameButWidth, gameButHeight, (width/2) + gameButXPos, gameButYPos + gameButSpace, func4);
+    let g3Button = new larsButton(buttonImg, bubblesName, gameButWidth, gameButHeight, (width/2) - gameButXPos, gameButYPos + gameButSpace, func3);
+    let g4Button = new larsButton(buttonImg, textName, gameButWidth, gameButHeight, (width/2) + gameButXPos, gameButYPos + gameButSpace, func4);
 }
 function levelSelectButtons(func1, func2, func3) {
     let levelButWidth = 350;
