@@ -2,17 +2,7 @@ var currentPage = document.createElement('script');
 
 // For testing purposes
 document.addEventListener("keypress", function(event) {
-  if (event.key == 'e') {
-    console.log(getItem("UserData"));
-  }
-
-  if (event.key == 't') {
-    createDataJSON();
-  }
-
-  if (event.key == 'y') {
-    changePage("menu");
-  }
+  
 });
 
 

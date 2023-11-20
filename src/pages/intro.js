@@ -1,5 +1,33 @@
 {
-    stop(0);
+    userStartAudio();
+    vPlay(introMus);
+
+    background(0);
+    frameRate(15);
+    let vidHeight = 300;
+
+    let secCount = 11.0;
+    let frameCount = 0;
+
+    textSize(30);
+    fill(255);
+    textAlign(CENTER);
+    function draw() {
+        //introGif.resize(width, vidHeight);
+        image(introGif, -100, 70);
+        introGif.setFrame(frameCount);
+
+        if (frameCount >= secCount*15) {
+            changePage("menu");
+        }
+        frameCount++;
+        text("Double tap to skip", 0, 450, width);
+    }
+
+    function doubleClicked() {
+        changePage("menu");
+    }
+    /*stop(0);
     vPlay(introMus);
 
     background(0);
@@ -29,5 +57,5 @@
 
     function doubleClicked() {
         changePage("menu");
-    }
+    }*/
 }

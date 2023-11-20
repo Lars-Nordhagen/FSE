@@ -380,7 +380,7 @@
 
     function done() {
         score = points;
-        scoreStr = score + "points";
+        scoreStr = "Score: " + score + "points";
         changePage("complete");
     }
 }

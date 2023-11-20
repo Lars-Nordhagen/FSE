@@ -10,7 +10,7 @@
 
     backButton(back);
     
-    let scoreText = "Score: " + scoreStr;
+    let scoreText = scoreStr;
     saveScore(currentGame, score, scoreStr, currentLevel);
 
     textSize(45);

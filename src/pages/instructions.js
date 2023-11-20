@@ -45,9 +45,9 @@
             case "basketball":
                 return "Put your finger on the ball. Swipe in the right direction at the right speed to get the ball in the hoop. Every ball you get in is 1 point."
             case "bubbles":
-                return "";
+                return "Tap on the bubbles to pop them. Try to do it in as little time as possible.";
             case "typing":
-                return "";
+                return "Type the sentance that is shown at the top of the screen. If the letter is green, it is correct. If it is red, it is wrong. Press backspace to redo a character.";
             default:
                 return "";
                 isAlpha

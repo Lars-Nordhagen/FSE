@@ -34,7 +34,7 @@
     }
 
     function g4() {
-        currentGame = "menu";
+        currentGame = "typing";
         changePage("difficultySelect");
     }
     

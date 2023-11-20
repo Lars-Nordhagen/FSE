@@ -11,6 +11,7 @@ let whooshSnd;
 let introMus;
 
 let introVid;
+let introGif;
 
 function preload() {
     userStartAudio();
@@ -18,6 +19,8 @@ function preload() {
     buttonImg = loadImage("./assets/images/green-button.png");
 
     introVid = createVideo("./assets/videos/APPIntro.mp4");
+    introGif = loadImage("./assets/videos/APPIntro.gif");
+    introGif.resize(400, 300);
     
     soundFormats('wav');
 
@@ -27,7 +30,7 @@ function preload() {
     buttonSnd = loadSound("./assets/sounds/ButtonSnd");
     whooshSnd = loadSound("./assets/sounds/whooshSnd");
 
-    introMus = loadSound("./assets/sounds/introMus")
+    introMus = loadSound("./assets/sounds/introMus");
 }
 
 // The setup function that initializes the p5 code and canvas
