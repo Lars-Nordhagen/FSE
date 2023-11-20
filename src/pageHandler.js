@@ -2,7 +2,9 @@ var currentPage = document.createElement('script');
 
 // For testing purposes
 document.addEventListener("keypress", function(event) {
-  
+  if (event.key == "z") {
+    console.log(getItem("UserData"));
+  }
 });
 
 

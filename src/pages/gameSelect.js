@@ -29,7 +29,7 @@
     }
     
     function g3() {
-        currentGame = "ray";
+        currentGame = "bubble";
         changePage("difficultySelect");
     }
 

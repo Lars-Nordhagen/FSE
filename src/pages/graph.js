@@ -11,6 +11,9 @@
     backButton(back);
 
     let scores = getGameScores(currentGame, currentLevel);
+    console.log(scores);
+    console.log(currentGame);
+    console.log(currentLevel);
     if (scores.length > 20) {
         let newArr = [];
         for (let i = 0; i < 20; i++) {

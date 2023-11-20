@@ -30,12 +30,12 @@
     }
     
     function g3() {
-        currentGame = "ray";
+        currentGame = "bubble";
         changePage("progLevelSelect");
     }
 
     function g4() {
-        currentGame = "menu";
+        currentGame = "typing";
         changePage("progLevelSelect");
     }
 }

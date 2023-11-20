@@ -1,6 +1,7 @@
 // Used to load all assets such as images and fonts
 let font;
 let buttonImg;
+let bubbleImg;
 
 let buzzSnd;
 let winSnd;
@@ -17,6 +18,7 @@ function preload() {
     userStartAudio();
     font = loadFont("./assets/fonts/Nunito-Light.ttf");
     buttonImg = loadImage("./assets/images/green-button.png");
+    bubbleImg = loadImage("./assets/images/Bubble.png");
 
     introVid = createVideo("./assets/videos/APPIntro.mp4");
     introGif = loadImage("./assets/videos/APPIntro.gif");

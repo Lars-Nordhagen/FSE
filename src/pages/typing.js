@@ -19,7 +19,7 @@
 
     let textXMargins = 15;
 
-    createCanvas(400, 500);
+    
     textSize(30);
     textWrap(WORD);
     textAlign(LEFT);
